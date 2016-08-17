@@ -10,7 +10,7 @@ function Tree (opt) {
   var state = {
     selected: opt.selected || [],
     open: opt.open || [],
-    openAll: false,
+    openAll: opt.openAll,
     root: opt.root || {},
     toggled: []
   }
