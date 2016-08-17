@@ -72,3 +72,8 @@
 .tree-view .directory, .tree-view.file {
   cursor: pointer;
 }
+
+.tree-view a, .tree-view a:hover {
+  color: #333333;
+  text-decoration: none;
+}
