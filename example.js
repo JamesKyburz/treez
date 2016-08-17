@@ -50,4 +50,4 @@ var tree = require('./')({
   }
 })
 
-window.document.body.appendChild(tree)
+window.document.body.appendChild(tree.el)

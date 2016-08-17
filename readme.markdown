@@ -10,7 +10,7 @@ var widget = require('treez')({
   onSelect: (selected) => console.log('selected', selected),
   onOpen: (opened) => console.log('opened', opened)
 })
-window.document.body.appendChild(widget)
+window.document.body.appendChild(widget.el)
 ```
 
 see [full-example]

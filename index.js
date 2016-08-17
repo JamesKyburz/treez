@@ -17,7 +17,14 @@ function Tree (opt) {
 
   var el = render()
 
-  return el
+  return {
+    el: el,
+    update: (newState) => {
+      if (newState) state = newState
+      update()
+    },
+    state: state
+  }
 
   function load () {
     if (opt.style !== false) css(fs.readFileSync(path.join(__dirname, 'style.css'), 'utf-8'))
