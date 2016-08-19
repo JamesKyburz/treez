@@ -72,7 +72,6 @@ function Tree (opt) {
         <li key=${root.path} class=${className} onclick=${toggle(root)}>
           <div class='list-item'>
             <span data-id=${root.id}><a>${root.path}</a></span>
-            <span onload=${(span) => { span.innerHTML = root.html || '' }} />
           </div>
           ${open || toggled ? root.entries.map(renderDirectory) : ''}
         </li>

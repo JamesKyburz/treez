@@ -56,11 +56,11 @@
   padding: 0 5px 0 0;
 }
 
-.tree-view .directory > div > ul {
+.tree-view .directory > ul {
   display: none;
 }
 
-.tree-view .directory.open > div > ul {
+.tree-view .directory.open > ul {
   display: block;
 }
 
