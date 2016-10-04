@@ -18,11 +18,14 @@
   },
   "browserify": {
     "transform": [
+      "babelify",
       "brfs"
     ]
   },
   "dependencies": {
+    "babelify": "7.3.0",
     "brfs": "1.4.3",
+    "babel-preset-es2015": "6.14.0",
     "insert-css": "1.0.0",
     "yo-yo": "1.3.0"
   },
