@@ -6,6 +6,18 @@ var path = require('path')
 module.exports = Tree
 Tree.items = items
 
+function getFlatTree (root) {
+  var out = []
+  function flatten (obj) {
+    out.push(obj)
+    if (obj.entries && obj.entries.length) {
+      obj.entries.forEach(flatten)
+    }
+  }
+  flatten(root)
+  return out
+}
+
 function Tree (opt) {
   var state = {
     selected: opt.selected || [],
@@ -13,6 +25,15 @@ function Tree (opt) {
     openAll: opt.openAll,
     root: opt.root || {},
     toggled: []
+  }
+
+  if (state.openAll) {
+    var flatTree = getFlatTree(state.root)
+    state.toggled = flatTree
+    state.open = flatTree.map(function (obj) {
+      obj.open = true
+      return obj
+    })
   }
 
   var el = render()
@@ -60,8 +81,7 @@ function Tree (opt) {
   function renderDirectory (root) {
     var toggled = state.toggled.indexOf(root) !== -1
     var open = (root.open && !toggled) ||
-      state.open.indexOf(root) !== -1 ||
-      state.openAll
+      state.open.indexOf(root) !== -1
     var className = 'entry'
     className += root.entries.length ? ' directory' : ' file'
     className += state.selected.indexOf(root) === -1 ? '' : ' selected'
@@ -86,6 +106,7 @@ function Tree (opt) {
       while (el.nodeName !== 'LI') el = el.parentNode
       var typeState = state[type]
       var pos = typeState.indexOf(root)
+
       if (type === 'open' && root.open && pos === -1 && state.toggled.indexOf(root) === -1) {
         typeState.push(root)
         pos = state.length - 1
