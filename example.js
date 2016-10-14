@@ -51,3 +51,4 @@ var tree = require('./')({
 })
 
 window.document.body.appendChild(tree.el)
+tree.openAll()

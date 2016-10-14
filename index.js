@@ -9,7 +9,7 @@ Tree.items = items
 function getFlatTree (root) {
   var out = []
   function flatten (obj) {
-    out.push(obj) 
+    out.push(obj)
     if (obj.entries && obj.entries.length) {
       obj.entries.forEach(flatten)
     }
