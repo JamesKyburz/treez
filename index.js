@@ -9,7 +9,7 @@ Tree.items = items
 function getFlatTree (root) {
   var out = []
   function flatten (obj) {
-    out.push(obj)
+    out.push(obj) 
     if (obj.entries && obj.entries.length) {
       obj.entries.forEach(flatten)
     }
@@ -22,18 +22,8 @@ function Tree (opt) {
   var state = {
     selected: opt.selected || [],
     open: opt.open || [],
-    openAll: opt.openAll,
     root: opt.root || {},
     toggled: []
-  }
-
-  if (state.openAll) {
-    var flatTree = getFlatTree(state.root)
-    state.toggled = flatTree
-    state.open = flatTree.map(function (obj) {
-      obj.open = true
-      return obj
-    })
   }
 
   var el = render()
@@ -42,6 +32,15 @@ function Tree (opt) {
     el: el,
     update: (newState) => {
       if (newState) state = newState
+      update()
+    },
+    openAll: () => {
+      var flatTree = getFlatTree(state.root)
+      state.toggled = flatTree
+      state.open = flatTree.map((obj) => {
+        obj.open = true
+        return obj
+      })
       update()
     },
     state: state
