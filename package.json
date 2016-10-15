@@ -22,6 +22,10 @@
       "brfs"
     ]
   },
+  "files": [
+    "index.js",
+    "style.css"
+  ],
   "dependencies": {
     "babelify": "7.3.0",
     "brfs": "1.4.3",
