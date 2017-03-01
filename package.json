@@ -34,7 +34,7 @@
     "yo-yo": "1.4.0"
   },
   "devDependencies": {
-    "standard": "8.6.0"
+    "standard": "9.0.0"
   },
   "license": "MIT"
 }
