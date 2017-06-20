@@ -1,5 +1,7 @@
 # treez
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/JamesKyburz/treez.svg)](https://greenkeeper.io/)
+
 A simple tree widget inspired by [tree-view] where the css is copied from!
 using [yo-yo]
 
